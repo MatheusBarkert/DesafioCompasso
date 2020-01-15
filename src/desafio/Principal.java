@@ -7,11 +7,11 @@ import java.util.Scanner;
 
 public class Principal {
 
-	public static void main(String[] args) throws IOException,NoSuchElementException {
+	public static void main(String[] args) throws IOException, NoSuchElementException {
 
 		File file = new File("Pessoas.csv");
-		try (Scanner sc = new Scanner(System.in)){
-			
+		try (Scanner sc = new Scanner(System.in)) {
+
 			Controle controle = new Controle();
 
 			int opcao;
@@ -23,11 +23,11 @@ public class Principal {
 				System.out.println("Opção 0 - Sair do programa");
 				System.out.println("_______________________________________");
 				System.out.println("Digite aqui sua opção: ");
-				//opcao = Integer.parseInt(sc.nextLine());// linha com problema a partir do segundo loop
-				opcao = sc.nextInt();
+				opcao = Integer.parseInt(sc.nextLine());
+
 				switch (opcao) {
 				case 1:
-					controle.cadastrarPessoas();
+					controle.cadastrarPessoas(sc);
 					break;
 
 				case 2:

@@ -8,7 +8,7 @@ import java.io.PrintWriter;
 import java.util.Scanner;
 
 public class Controle {
-	
+
 	public void ImprimePessoasCadastradas(File file) throws FileNotFoundException {
 		try (Scanner sc = new Scanner((file), "UTF-8")) {
 			while (sc.hasNextLine()) {
@@ -26,30 +26,29 @@ public class Controle {
 
 	}
 
-	public void cadastrarPessoas() throws IOException {// PRECISO REVISAR ESSE METODO, ESTA FAZENDO DUAS COISAS
-		try (Scanner scanner = new Scanner(System.in)) {
-			System.out.println("Digite o código: ");
-			int codigo = Integer.parseInt(scanner.nextLine());
+	public void cadastrarPessoas(Scanner scanner) throws IOException {// PRECISO REVISAR ESSE METODO, ESTA FAZENDO DUAS
+																		// COISAS
 
-			System.out.println("Digite o nome: ");
-			String nome = scanner.nextLine();
+		System.out.println("Digite o código: ");
+		int codigo = Integer.parseInt(scanner.nextLine());
 
-			System.out.println("Digite o endereço: ");
-			String endereco = scanner.nextLine();
+		System.out.println("Digite o nome: ");
+		String nome = scanner.nextLine();
 
-			System.out.println("Digite a idade: ");
-			int idade = Integer.parseInt(scanner.nextLine());
+		System.out.println("Digite o endereço: ");
+		String endereco = scanner.nextLine();
 
-			Pessoa p = new Pessoa(codigo, nome, endereco, idade);
+		System.out.println("Digite a idade: ");
+		int idade = Integer.parseInt(scanner.nextLine());
 
-			FileWriter fw = new FileWriter("Pessoas.csv", true);
-			PrintWriter gravaArquivo = new PrintWriter(fw);
+		Pessoa p = new Pessoa(codigo, nome, endereco, idade);
 
-			gravaArquivo.printf("%d,%s,%s,%d\r\n", p.getCodigo(), p.getNome(), p.getEndereco(), p.getIdade());
-			
-			fw.close();
-			
-		}
+		FileWriter fw = new FileWriter("Pessoas.csv", true);
+		PrintWriter gravaArquivo = new PrintWriter(fw);
+
+		gravaArquivo.printf("%d,%s,%s,%d\r\n", p.getCodigo(), p.getNome(), p.getEndereco(), p.getIdade());
+
+		fw.close();
 
 	}
 
